@@ -49,61 +49,7 @@ OpenAI, LinkdIn API
 2. Landing Page
 3. User Profile Page 
 
-+----------------------------------+
-|      Start: User Logins     |
-+----------------------------------+
-                |
-                v
-+----------------------------------+
-|   User uploads current resume    |
-+----------------------------------+
-                |
-                v
-+----------------------------------+
-|   Web Scraping (LinkedIn Jobs)   |
-|       Get job posts data          |
-+----------------------------------+
-                |
-                v
-+----------------------------------+
-|  Sentiment Analysis of Resume    |
-|        (Score current CV)         |
-+----------------------------------+
-                |
-                v
-+----------------------------------+
-|  Job Matching & Score Comparison |
-|  Match job posts with resume,     |
-|  compare scores, and generate     |
-|  suggestions for modifications   |
-+----------------------------------+
-                |
-                v
-+----------------------------------+
-|    Display Suggestions to User   |
-|   (Possible modifications for    |
-|   a better match with job posts) |
-+----------------------------------+
-                |
-                v
-+----------------------------------+
-|        User Review & Edit         |
-|   Allow user to review and edit   |
-|    the suggested modifications   |
-+----------------------------------+
-                |
-                v
-+----------------------------------+
-|   Final Resume and Suggestions   |
-|   User receives final resume     |
-|   with applied suggestions       |
-+----------------------------------+
-                |
-                v
-+----------------------------------+
-|         End: Completed           |
-+----------------------------------+
-
+![sitemap](images/flowchart.png)
 
 ### Mockups
 
