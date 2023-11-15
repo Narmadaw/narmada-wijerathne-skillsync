@@ -62,11 +62,7 @@ Many-to-Many with Resumes (multiple resumes can match with a job post, and a res
 
 ### Endpoints
 ex:
-1. Upload Resume Endpoint:
-   Endpoint: /api/upload-resume
-   HTTP Method: POST
-   Parameters:  resume (multipart/form-data): The resume file.
-                userId (query parameter or header): ID of the user uploading the resume.
+![endpoint](images/endpoint.png)
 
 ### Auth
 
