@@ -8,7 +8,6 @@
     }
     &__logo{
         justify-content: flex-start;
-
     }
     &__logo-img{
         width: 150px;
@@ -18,11 +17,21 @@
     }
     &__nav-list{
         display: flex;
-
+    }
+    &__link{
+        text-decoration: none;
     }
     &__nav-item{
         list-style: none;
         padding: 0 1rem;
+        line-height: 38px;
+       
+        &--sign-up{
+            background-color: $skillsync-blue;
+            color: white;
+            border-radius: 4px;
+        }
+      
     }
     &__nav-primary-btn{
         @include primary-button-styles;

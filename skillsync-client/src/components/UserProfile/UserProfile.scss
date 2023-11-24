@@ -1,0 +1,132 @@
+@use './../../styles/partials/fonts' as *;
+@use './../../styles//partials/mixin' as *;
+
+// .container {
+//     position: relative;
+//     width: 50%;
+//     margin: 3rem auto;
+
+//     &__circle {
+//         width: 50px;
+//         height: 50px;
+//         border-radius: 50%;
+//         background-color: $skillsync-blue;
+//         color: white;
+//         font-size: 28px;
+//         font-weight: 600;
+//         display: inline-flex;
+//         align-items: center;
+//         justify-content: center;
+//         position: absolute;
+//         top: -25px; 
+//         box-shadow: rgba(26, 145, 240, 0.4) 0px 0px 10px 10px;
+//         border: 2px solid gray;
+//         z-index: 2;
+
+//         &--middle{
+//             left: 33.33%;
+//         }
+
+//         &--last{
+//             left: 66.66%;
+//         }
+//       }
+//       &__line {
+//         width: 68%;
+//         height: 2px;
+//         background-color: gray;
+//         position: relative;
+//         margin-top: 20px;
+//         z-index: 1;
+//       }
+
+//       &__lbl{
+//         margin-top: 35px;
+//         margin-bottom: 2.5rem;
+//         display: inline-flex;
+//         align-items: center;
+//         justify-content: center;
+//         //position: absolute;
+//         &--middle{
+//             left: 33.33%;
+//         }
+//         &--last{
+//             left: 66.66%;
+//         }
+//       }
+//   }
+
+.profile-wrapper{
+    margin: 1.5rem 7.5rem;
+    padding: 1rem 2.5rem;
+    //display: flex;
+    height: 400px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    border: 1px dashed $skillsync-blue;
+
+}
+
+.upload-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    &__card{
+        text-align: center;
+    }
+
+    &__btn-upload{
+        &::-webkit-file-upload-button{
+            width: 150px;
+            height: 38px;
+            background-color: $skillsync-blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            //font-size: 0.75rem;
+        }
+    }
+    &__input{
+        width: 50%;
+        height: 38px;
+        border-radius: 5px;
+        border: 1px solid $skillsync-blue;
+        padding-left: 1rem;
+    }
+    &__skills-list{
+        display: flex;
+        justify-content: center;
+    }
+    &__skills-list-item{
+        list-style: none;
+        margin-right: 1.5rem;
+        background-color: gray;
+        height: 35px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        width: auto;
+        color: black;
+        border-radius: 10px;
+        opacity: 0.7;
+    }
+
+    &__btn-save{
+        width: 10%;
+        height: 38px;
+        background-color: $skillsync-blue;
+        border-radius: 5px;
+        border: none;
+        color: white;
+        margin-right: 1.5rem;
+    }
+    &__btn-search{
+        width: 10%;
+        height: 38px;
+        background-color: $skillsync-blue;
+        border-radius: 5px;
+        border: none;
+        color: white;
+    }
+}
+
