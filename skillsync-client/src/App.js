@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
-import './App.css';
+import './App.scss';
 import Header from "./components/Header/Header";
 
 import HomePage from './pages/HomePage/HomePage';
