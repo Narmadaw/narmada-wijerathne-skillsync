@@ -101,6 +101,10 @@ const handleChange = (e) => {
                         <div className='job-search-wrapper__card'>
                           <p className='job-search-wrapper__item'>{job.date}</p>
                         </div>
+
+                        {/* <div className='job-search-wrapper__card'>
+                          <p className='job-search-wrapper__item'>{job.link}</p>
+                        </div> */}
                       </div>
                     </li>
                     <li className='job-search-wrapper__h-line'></li>

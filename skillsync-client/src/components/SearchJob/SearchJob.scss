@@ -47,11 +47,8 @@
     }
    
     &__search-btn{
+        @include primary-button-styles;
         width: 10%;
-        height: 38px;
-        background-color: $skillsync-blue;
-        border-radius: 5px;
-        border: none;
-        color: white;
+       
     }
 }

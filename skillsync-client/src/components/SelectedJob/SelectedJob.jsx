@@ -17,10 +17,16 @@ const SelectedJob = ()=>{
         const getJobDetails = async()=>{
             try{
                 const response = await axios.get(`http://localhost:8080/jobs/${id}`);
-                setSelectedJob(response.data.jobDescription);
-                setResumeSkills(response.data.resumeSkills);
-                setJobSkills(response.data.jobDescriptionSkills);
-                setMatchingScore(response.data.matchingPercentage);
+                if(response.data.jobDescription){
+                    setSelectedJob(response.data.jobDescription);
+                    setResumeSkills(response.data.resumeSkills);
+                    setJobSkills(response.data.jobDescriptionSkills);
+                    setMatchingScore(response.data.matchingPercentage);
+                }else{
+                    alert("no data");
+                }
+
+                
             }catch(error){
                 console.error('Error fetching data:', error);
             }
@@ -30,71 +36,71 @@ const SelectedJob = ()=>{
 
     const handleClick = (e) => {
         e.preventDefault();
-        // window.history.back();
-        //localStorage.removeItem('currentPage');
-        //window.history.back();
         window.history.go(-1)
       };
 
-      const score = parseInt(machingScore);
-      console.log(score);
-
+    const score = parseInt(machingScore);
+    const matchingSkills = jobSkills.filter(jobSkill => resumeSkills.includes(jobSkill));
+    const missingSkills = jobSkills.filter(jobSkill => !resumeSkills.includes(jobSkill));
+    const orderedSkills = matchingSkills.concat(missingSkills);
     return(
         <>
-        <div className="wrapper">
+        <div className="selected-job-wrapper">
             <div className="container">
                 <div className="container__header">
                     <h1 className="container__header-title">
-                    {title} - {company}
+                            Job Title : {title} - {company}
                     </h1>
+                    <button className="container__btn-back" onClick={handleClick}>Back to Job Search</button>
                 </div>
-                <div className="container__body">
-                    <div className="inside">
-                        <div className="inside__left-pannel">
-                            <div className="inside__chart">
-                                <h2>Match Rate</h2>
-                                <DonutChart className="donutchart"
-                                    data={[
-                                        {
-                                        label: 'Your Score',
+                <div className="container__chart">
+                    <div className="container__chart-box">
+                        <DonutChart className="donutchart"
+                            data={[
+                                    {   label:"Match Rate",
                                         value: score,
-                                        },
-                                        {
-                                        label: '',
+                                    },
+                                    {
                                         value: 10,
                                         isEmpty: true,
-                                        },
-                                    ]}
-                                />
-                            </div>
-                            <button onClick={handleClick}>Back to Job Search</button>
-                        </div>
-                        <div className="inside__right-pannel">
-                            <div className="inside__card-pannel">
-                                <div className="inside__resume-skills">
-                                    <h2>Your Skills</h2>
-                                    {resumeSkills.map((skil, index) => (
-                                        <p key={index}>{skil}</p>
-                                    ))}
-                                </div>
-                                <div className="inside__jobskills">
-                                    <h2>Required Skills</h2>
-                                    {jobSkills.map((jobSkill, index) => (
-                                        <p key={index}>{jobSkill}</p>
-                                    ))}
-                                </div>
-                            </div>
-                            
-                            <div className="inside__jobdescription">
-                                <h2>Job Description</h2>
-                                {selectedJob.map((jobDescription, index) => (
-                                <p key={index}>{jobDescription}</p>
+                                    },
+                            ]}
+                        />
+                    </div>
+                    <div className="container__skills-pannel">
+                        <div className="container__skills">
+                            <h2 className="container__sub-header">Your Skills</h2>
+                            <div className="container__horizontal">
+                            {resumeSkills.map((skil, index) => (
+                                    <p key={index}>{skil}</p>
                                 ))}
                             </div>
-                        
+                                
+                        </div>
+                        <div className="container__skills">
+                            <div>
+                                <h2 className="container__sub-header">Required Skills</h2>
+                            </div>
+                            <div className="container__horizontal">
+                            {orderedSkills.map((jobSkill, index) => (
+                                    <p  key={index}
+                                        className={matchingSkills.includes(jobSkill) ? 'container__matching' : 'container__missing'}>
+                                            {jobSkill}
+                                            </p>
+                                        ))} 
+
+                            </div>
+                            
+                                                                 
                         </div>
                     </div>
-                    
+
+                </div>
+                <div className="container__job-description">
+                    <h2>Job Description</h2>
+                        {selectedJob.map((jobDescription, index) => (
+                            <p key={index}>{jobDescription}</p>
+                        ))}
                 </div>
             </div>
         </div>

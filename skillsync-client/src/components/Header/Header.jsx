@@ -1,9 +1,20 @@
+import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 import Logo from './../../assets/images/logo/logo.png';
+import SignUpModal from './../SignUpModal/SignUpModal';
 import './Header.scss';
 
 
+
 const Header = ()=>{
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const openModal = () => {
+        setIsModalOpen(true);
+      };
+    
+      const closeModal = () => {
+        setIsModalOpen(false);
+      };
     return(
         <>
         <div className="header">
@@ -19,12 +30,13 @@ const Header = ()=>{
                         <Link className='header__link' to='/'>
                             <li className='header__nav-item'>Homepage</li>
                         </Link>
-                        <li className='header__nav-item header__nav-item--sign-in'>Sign In</li>
-                        <li className='header__nav-item header__nav-item--sign-up'>Sign Up</li>
+                        <button className='header__nav-item header__nav-item--sign-in'>Sign In</button>
+                        <button className='header__nav-item header__nav-item--sign-up' onClick={openModal}>Sign Up</button>
                     </ul>
                 </div>
             </div>
-        </div>     
+        </div> 
+        <SignUpModal isOpen={isModalOpen} onClose={closeModal} />    
         </>
     );
 }

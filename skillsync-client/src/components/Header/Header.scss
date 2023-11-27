@@ -27,17 +27,16 @@
         line-height: 38px;
        
         &--sign-up{
-            background-color: $skillsync-blue;
-            color: white;
-            border-radius: 4px;
+            @include primary-button-styles;
+            width: 150px;
+            margin-left: 1rem
         }
-      
+        &--sign-in{
+            @include primary-button-styles;
+            width: 150px;
+            
+        }
     }
-    &__nav-primary-btn{
-        @include primary-button-styles;
-    }
-    &__nav-cancel-btn{
-        @include cancel-button-styles;
-    }
+   
 
 }

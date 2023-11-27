@@ -16,14 +16,14 @@ $skillsync-black: #13182C;
   height: 2.5rem;
   width: $button-width;
   color: $skillsync-white;
-  padding: 0 2rem;
-  font-size: 0.625rem;
+  //padding: 0 2rem;
+  font-size: 1rem;
   line-height: 1.25rem;
-  font-weight: 700;
+  font-weight: 400;
   border-radius: 0.25rem;
   background-color: $skillsync-blue;
   background-repeat: no-repeat;
-  background-position: 2vw;
+  //background-position: 2vw;
   border: none;
 
   &:hover {
