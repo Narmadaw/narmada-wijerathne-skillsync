@@ -22,8 +22,7 @@ As a job seeker, I want to use an automated resume checker to improve my resume'
 3. Extract LinkdIn or Indeed job posts
 4. Sentiment Analysis
 5. Job Matching
-6. Suggestions for Modifications
-7. Download resume as a pdf
+
 
 
 ## Implementation
@@ -77,8 +76,7 @@ JSON Web Token (JWT) authentication
 1. setup the project and complete user login
 2. Resume upload
 3. Do the analysis 
-4. Modifications/suggestions
-5. Final version 
+
 
 ## Nice-to-haves
 
