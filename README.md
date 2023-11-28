@@ -17,11 +17,10 @@ SkillSync is designed to cater to a diverse audience of job seekers, and individ
 
 As a job seeker, I want to use an automated resume checker to improve my resume's match with LinkedIn job posts, receive sentiment analysis insights, and get suggestions for modifications to increase my chances of landing relevant job opportunities.
 
-1. User login
-2. Uploading Resume
-3. Extract LinkdIn or Indeed job posts
-4. Sentiment Analysis
-5. Job Matching
+1. Uploading Resume
+2. Extract LinkdIn or Indeed job posts
+3. Sentiment Analysis
+4. Job Matching
 
 
 
