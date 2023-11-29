@@ -1,31 +1,35 @@
 @use './../../styles/partials/fonts' as *;
 @use './../../styles//partials/mixin' as *;
 
-
+*{
+    box-sizing: border-box;
+    //border: 1px solid black;
+}
 .profile-wrapper{
-    margin: 1.5rem 7.5rem;
-    padding: 1rem 2.5rem;
-    height: 400px;
+    padding: 1rem;
+    background-color: $skillsync-gray;
+    height: auto;
 }
 
 .upload-container{
-    background-color: #f0f0f0;
+    background-color:white;
     border-radius: 5px;
     border: 1px dashed $skillsync-blue;
-    padding-top: 1rem;
-    width :100%;
+    margin: 1rem 12.5rem;
     &__card{
+        padding-top: 0.5rem;
         text-align: center;
+    }
+    &__text{
+        margin-bottom: 0;
     }
 
     &__btn-upload{
+        color: rgba(0, 0, 0, 0);
+        
         &::-webkit-file-upload-button{
-            width: 150px;
-            height: 38px;
-            background-color: $skillsync-blue;
-            color: white;
-            border: none;
-            border-radius: 5px;
+            @include primary-button-styles;
+            overflow: hidden;
         }
     }
     &__input{
@@ -68,6 +72,50 @@
         border-radius: 5px;
         border: none;
         color: white;
+    }
+    &__image{
+        
+    }
+    &__title{
+        margin: 0;
+    }
+}
+
+.resume{
+    background-color: $skillsync-gray;
+    padding: 1.5rem 5.5rem;
+}
+
+.resume-container{
+    padding: 1.5rem;
+    background-color: white;
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+    &__left{
+        width: 40%;
+        padding: 0 1rem;
+        background-color: #f0f0f0;
+    }
+    &__right{
+        width: 60%;
+        padding: 0 1rem;
+    }
+    &__h-line{
+        border: 1px solid black;
+    }
+    &__sub-title{
+        margin: 1rem 0 0 0;
+        color: $skillsync-blue;
+    }
+    &__skill-list{
+        padding-left: 0;
+    }
+    &__skill-list-item{
+        list-style: none;
+    }
+    &__sub{
+        font-weight: 600;
     }
 }
 
