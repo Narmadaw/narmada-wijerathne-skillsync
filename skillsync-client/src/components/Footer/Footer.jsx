@@ -1,5 +1,9 @@
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import './Footer.scss'
 
 const Footer = () =>{
@@ -55,10 +59,10 @@ const Footer = () =>{
   <div class="footer-icons">
   {/* <FontAwesomeIcon icon={faLinkedin} /> */}
   
-    <a href="#"><i class="fa fa-facebook"></i></a>
-    <a href="#"><i class="fa fa-twitter"></i></a>
-    <a href="#"><i class="fa fa-linkedin"></i></a>
-    <a href="#"><i class="fa fa-github"></i></a>
+    <a href="#"><i class="fa fa-facebook"></i><FacebookIcon /></a>
+    <a href="#"><i class="fa fa-twitter"></i><TwitterIcon/></a>
+    <a href="#"><i class="fa fa-linkedin"></i><LinkedInIcon /></a>
+    <a href="#"><i class="fa fa-github"></i><GitHubIcon/></a>
 
   </div>
 

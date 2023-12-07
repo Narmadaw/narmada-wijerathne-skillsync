@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import DonutChart from 'react-donut-chart';
+import CancelIcon from '@mui/icons-material/Cancel';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import axios from 'axios';
 import './SelectedJob.scss';
 
@@ -16,7 +18,7 @@ const SelectedJob = ()=>{
     useEffect(()=>{
         const getJobDetails = async()=>{
             try{
-                const response = await axios.get(`http://localhost:8080/jobs/${id}`);
+                const response = await axios.get(`https://skillsyncio-5e3c537e9de3.herokuapp.com/jobs/${id}`);
                 if(response.data.jobDescription){
                     setSelectedJob(response.data.jobDescription);
                     setResumeSkills(response.data.resumeSkills);
@@ -39,19 +41,28 @@ const SelectedJob = ()=>{
         window.history.go(-1)
       };
 
+
     const score = parseInt(machingScore);
     const matchingSkills = jobSkills.filter(jobSkill => resumeSkills.includes(jobSkill));
     const missingSkills = jobSkills.filter(jobSkill => !resumeSkills.includes(jobSkill));
     const orderedSkills = matchingSkills.concat(missingSkills);
+
+    const renderIcon = (isMatching) => {
+        if (isMatching) {
+            return <CheckCircleIcon className="container__icon" />;
+        } else {
+            return <CancelIcon className="container__icon" />;
+        }
+    }
     return(
         <>
         <div className="selected-job-wrapper">
             <div className="container">
                 <div className="container__header">
                     <h1 className="container__header-title">
-                            Job Title : {title} - {company}
+                            {title} - {company}
                     </h1>
-                    <button className="container__btn-back" onClick={handleClick}>Back to Job Search</button>
+                    
                 </div>
                 <div className="container__chart">
                     <div className="container__chart-box">
@@ -66,13 +77,32 @@ const SelectedJob = ()=>{
                                     },
                             ]}
                         />
+                        <div className="container__chart-btn-pannel">
+                            <Link to={'/profile'} >
+                                <button className="container__btn-edit">Edit Resume</button>
+                            </Link>
+                            
+                            <button className="container__btn-back" onClick={handleClick}>Back to Job Search</button>
+                        </div>
+                        
                     </div>
-                    <div className="container__skills-pannel">
+                    <div className="container__job-description">
+                        <h2 className="container__s-text">Job Description</h2>
+                        <hr/>
+                        {selectedJob.map((jobDescription, index) => (
+                            <p className="container__text" key={index}>{jobDescription}</p>
+                        ))}
+                    </div>
+                </div>
+                
+
+
+                <div className="container__skills-pannel">
                         <div className="container__skills">
                             <h2 className="container__sub-header">Your Skills</h2>
                             <div className="container__horizontal">
                             {resumeSkills.map((skil, index) => (
-                                    <p key={index}>{skil}</p>
+                                    <p className="container__your-skills" key={index}>{skil}</p>
                                 ))}
                             </div>
                                 
@@ -83,25 +113,14 @@ const SelectedJob = ()=>{
                             </div>
                             <div className="container__horizontal">
                             {orderedSkills.map((jobSkill, index) => (
-                                    <p  key={index}
-                                        className={matchingSkills.includes(jobSkill) ? 'container__matching' : 'container__missing'}>
-                                            {jobSkill}
-                                            </p>
-                                        ))} 
-
-                            </div>
-                            
-                                                                 
+                                <p  key={index}
+                                    className={matchingSkills.includes(jobSkill) ? 'container__matching' : 'container__missing'}>
+                                    {jobSkill} {renderIcon(matchingSkills.includes(jobSkill))}
+                                </p>
+                            ))} 
+                            </div>                                   
                         </div>
                     </div>
-
-                </div>
-                <div className="container__job-description">
-                    <h2>Job Description</h2>
-                        {selectedJob.map((jobDescription, index) => (
-                            <p key={index}>{jobDescription}</p>
-                        ))}
-                </div>
             </div>
         </div>
         </>

@@ -25,7 +25,7 @@ const handleChange = (e) => {
 
   const handleSearch = async() =>{
     try {
-      const response = await axios.get("http://localhost:8080/jobs/", {params: formData});
+      const response = await axios.get("https://skillsyncio-5e3c537e9de3.herokuapp.com/jobs/", {params: formData});
       console.log(response.data)
       setSearchRecords(response.data);
       localStorage.setItem('searchRecords', JSON.stringify(response.data));
